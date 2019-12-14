@@ -2,9 +2,9 @@
 require_relative 'application'
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => 'your_sendgrid_username',
-  :password => 'your_sendgrid_password',
-  :domain => 'yourdomain.com',
+  :user_name => 'piotr-putylo',
+  :password => 'wezsiejuz1',
+  :domain => 'two-do-net.herokuapp.com',
   :address => 'smtp.sendgrid.net',
   :port => 465,
   :authentication => :plain,

@@ -14,6 +14,24 @@
   </head>
 
   <body>
+    <div class="col-xs-12" style=" ">
+      <% flash.each do |type, msg| %>
+        <% if type == "notice" %>
+          <div class="alert alert-success" />
+        <% elsif type == "alert" %>
+          <div class="alert alert-danger" />
+        <% else %>
+          <div class='alert alert-<%= "#{type}" %>' />
+        <% end %>
+        <a href="#" class="close text-danger" style="float: right; font-size: 25px;" data-dismiss="alert">&#215;</a>
+        <ul>
+          <li> <%= msg %> </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  
     <%= yield %>
+  
   </body>
 </html>

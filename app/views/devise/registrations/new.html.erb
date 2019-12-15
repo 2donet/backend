@@ -1,58 +1,50 @@
 <%= javascript_pack_tag 'scripts', 'data-turbolinks-track': 'reload' %>
 
-<div class="tab__content">
-  <section class="switchable ">
-    <div class="container">
-      <div class="row justify-content-between align-items-center">
-        <div class="col-md-6 col-lg-5">
-          <div class="switchable__text">
-            <h2>Create a <b>2do</b> account</h2>
-            <span>Already have an account?
-              <%= link_to "Sign in", new_session_path(resource_name) %><br />
-            </span>
-            <hr class="short">
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= render "devise/shared/error_messages", resource: resource %>
-              <div class="row">
-                <div class="col-12">
-                  <input type="text" autofocus="true" name="First Name" placeholder="Your Name" />
-                </div>
-                <div class="col-12">
-                  <%= f.email_field :email, autocomplete: "email", placeholder: "Email Address" %>
-                </div>
-                <div class="col-12">
-                  <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> characters minimum)</em>
-                  <% end %><br />
-                  <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
-                </div>
-                <div class="col-12">
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password" %>
-                </div>
-                <div class="col-12">
-                  <div class="input-checkbox">
-                    <input type="checkbox" name="agree" />
-                    <label></label>
-                  </div>
-                  <span>I agree to terms and conditions</span>
-                </div>
-                <div class="col-12">
-                  <%= f.submit "Create Account", class: "btn btn--primary" %>
-                </div>
-                <hr />
-                <div class="col-12">
-                  <span class="type--fine-print">By signing up, you agree to the
-                    <a href="#">Terms of Service</a>
-                  </span>
-                </div>
+<div class="main-container">
+  <section class="imageblock switchable feature-large height-100">
+    <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+      <div class="background-image-holder">
+        <%= image_tag "inner-7.jpg" %>
+      </div>
+    </div>
+    <div class="container pos-vertical-center">
+      <div class="row">
+        <div class="col-lg-5 col-md-7">
+          <h2><%= t("signup.create_account").html_safe %></h2>
+          <p class="lead">
+            <span><%= t("signup.already") %>
+            <%= link_to "Sign in", new_session_path(resource_name) %><br />
+          </span>
+          </p>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="row">
+              <div class="col-12">
+                <%= f.email_field :email, autocomplete: "email", placeholder: t("signup.email"), required: true %>
               </div>
-              <!--end row-->
-            <% end %>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-5">
-          <%= image_tag "landing-7.jpg", class: 'border--round box-shadow-shallow'%>
-
+              <div class="col-12">
+                <%= f.password_field :password, autocomplete: "new-password", placeholder: t("signup.password"), required: true %>
+              </div>
+              <div class="col-12">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: t("signup.confirm_password"), required: true %>
+              </div>
+              <div class="col-12">
+                <div class="input-checkbox">
+                  <input type="checkbox" name="agree" />
+                  <label></label>
+                </div>
+                <span><%= t("signup.tandc") %></span>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn--primary type--uppercase"><%= t("signup.submit") %> </button>
+              </div>
+              <div class="col-12">
+                <span class="type--fine-print"><%= t("signup.signup_tandc") %>
+                  <a href="#">Terms of Service</a>
+                </span>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
       <!--end of row-->
@@ -60,3 +52,7 @@
     <!--end of container-->
   </section>
 </div>
+<!-- <div class="loader"></div> -->
+<a class="back-to-top inner-link" href="#start" data-scroll-class="100vh:active">
+  <i class="stack-interface stack-up-open-big"></i>
+</a>

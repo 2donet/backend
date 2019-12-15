@@ -1,4 +1,4 @@
-en:
+pl:
   signin:
     continue: Login to continue
     welcome: Welcome back, sign in with your existing <b>2do</b> account credentials
@@ -10,12 +10,3 @@ en:
     create_account: Create account
     forgot: Forgot your username or password?
     recover: Recover account
-  signup:
-    create_account: Create a <b>2do</b> account
-    already: Already have an account? 
-    email: Email Address
-    password: Password
-    confirm_password: Confirm Password
-    tandc: I agree to terms and conditions  
-    submit: Create Account
-    signup_tandc: By signing up, you agree to the 

@@ -1,26 +1,59 @@
-<h2>Log in</h2>
+<%= javascript_pack_tag 'scripts', 'data-turbolinks-track': 'reload' %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="main-container">
+  <section class="height-100 imagebg text-center" data-overlay="4">
+    <div class="background-image-holder">
+      <%= image_tag "inner-6.jpg", alt: "background" %>
+      <!-- <img alt="background" src="img/inner-6.jpg" /> -->
+    </div>
+    <div class="container pos-vertical-center">
+      <div class="row">
+        <div class="col-md-7 col-lg-5">
+          <h2><%= t("signin.continue") %></h2>
+          <p class="lead">
+            <%= t("signin.welcome").html_safe %>
+          </p>
+          <!-- <form> -->
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.email_field :email, autocomplete: "email", placeholder: t("signin.email"), required: true %>
+
+                <!-- <input type="email" placeholder="Email" required="true" /> -->
+              </div>
+              <div class="col-md-12">
+                <%= f.password_field :password, autocomplete: "current-password", placeholder: t("signin.password"), required: "true"%>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+                <div class="col-12">
+                  <div class="input-checkbox">
+                    <input type="checkbox" name="user[remember_me]" required="true" />
+                    <label></label>
+                  </div>
+                  <span><%= t("signin.tandc") %> </span>
+                </div>
+              <% end %>
+
+              <div class="col-md-12">
+                <button class="btn btn--primary type--uppercase" type="submit"><%= t("signin.login") %></button>
+              </div>
+            </div>
+            <!--end of row-->
+        <% end %>
+          <span class="type--fine-print block">
+            <%= t("signin.no_account") %>
+            <%= link_to t("signin.create_account"), new_registration_path(resource_name) %><br />
+          </span>
+          <span class="type--fine-print block">
+            <%= t("signin.forgot") %>
+
+            <%= link_to t("sigin.recover"), new_password_path(resource_name)%><br />
+          </span>
+        </div>
+      </div>
+      <!--end of row-->
+    </div>
+    <!--end of container-->
+  </section>
 </div>
-
-<div class="field">
-  <%= f.label :password %><br />
-  <%= f.password_field :password, autocomplete: "current-password" %>
-</div>
-
-<% if devise_mapping.rememberable? %>
-<div class="field">
-  <%= f.check_box :remember_me %>
-  <%= f.label :remember_me %>
-</div>
-<% end %>
-
-<div class="actions">
-  <%= f.submit "Log in" %>
-</div>
-<% end %>
-
-<%= render "devise/shared/links" %>

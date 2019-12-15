@@ -2520,98 +2520,98 @@ mr = (function (mr, $, window, document){
 }(mr, jQuery, window, document));
 
 //////////////// Smoothscroll
-mr = (function (mr, $, window, document){
-    "use strict";
+// mr = (function (mr, $, window, document){
+//     "use strict";
     
-    mr.smoothscroll = mr.smoothscroll || {};
-    mr.smoothscroll.sections = [];
+//     mr.smoothscroll = mr.smoothscroll || {};
+//     mr.smoothscroll.sections = [];
     
-    mr.smoothscroll.init = function(){
-        mr.smoothscroll.sections = [];
+//     mr.smoothscroll.init = function(){
+//         mr.smoothscroll.sections = [];
 
        
 
-        $('a.inner-link').each(function(){
-            var sectionObject = {},
-                link          = $(this),
-                href          = link.attr('href'),
-                validLink     = new RegExp('^#[^\r\n\t\f\v\#\.]+$','gm');
+//         $('a.inner-link').each(function(){
+//             var sectionObject = {},
+//                 link          = $(this),
+//                 href          = link.attr('href'),
+//                 validLink     = new RegExp('^#[^\r\n\t\f\v\#\.]+$','gm');
                             
-            if(validLink.test(href)){
+//             if(validLink.test(href)){
                 
-                if($('section'+href).length){
+//                 if($('section'+href).length){
 
-                    sectionObject.id     = href;
-                    sectionObject.top = Math.round($(href).offset().top);
-                    sectionObject.height = Math.round($(href).outerHeight());
-                    sectionObject.link   = link.get(0);
-                    sectionObject.active = false;
+//                     sectionObject.id     = href;
+//                     sectionObject.top = Math.round($(href).offset().top);
+//                     sectionObject.height = Math.round($(href).outerHeight());
+//                     sectionObject.link   = link.get(0);
+//                     sectionObject.active = false;
 
-                    mr.smoothscroll.sections.push(sectionObject);
-                }
-            }
-        });
+//                     mr.smoothscroll.sections.push(sectionObject);
+//                 }
+//             }
+//         });
 
-        mr.smoothscroll.highlight();
-    };
+//         mr.smoothscroll.highlight();
+//     };
 
-    mr.smoothscroll.highlight = function(){
-        mr.smoothscroll.sections.forEach(function(section){
-            if(mr.scroll.y >= section.top && mr.scroll.y < (section.top + section.height)){
-                if(section.active === false){
-                    section.link.classList.add("inner-link--active");
-                    section.active = true;
-                }
-            }else{
-                section.link.classList.remove("inner-link--active");
-                section.active = false;
-            }
-        });
-    };
+//     mr.smoothscroll.highlight = function(){
+//         mr.smoothscroll.sections.forEach(function(section){
+//             if(mr.scroll.y >= section.top && mr.scroll.y < (section.top + section.height)){
+//                 if(section.active === false){
+//                     section.link.classList.add("inner-link--active");
+//                     section.active = true;
+//                 }
+//             }else{
+//                 section.link.classList.remove("inner-link--active");
+//                 section.active = false;
+//             }
+//         });
+//     };
 
-    mr.scroll.listeners.push(mr.smoothscroll.highlight);
+//     mr.scroll.listeners.push(mr.smoothscroll.highlight);
 
-    mr.smoothscroll.documentReady = function($){
-        // Smooth scroll to inner links
-        var innerLinks = $('a.inner-link'), offset, themeDefaults, ao = {};
+//     mr.smoothscroll.documentReady = function($){
+//         // Smooth scroll to inner links
+//         var innerLinks = $('a.inner-link'), offset, themeDefaults, ao = {};
 
-        themeDefaults = {
-            selector: '.inner-link',
-            selectorHeader: null,
-            speed: 750,
-            easing: 'easeInOutCubic',
-            offset: 0
-        };
+//         themeDefaults = {
+//             selector: '.inner-link',
+//             selectorHeader: null,
+//             speed: 750,
+//             easing: 'easeInOutCubic',
+//             offset: 0
+//         };
 
-        if(innerLinks.length){
-            innerLinks.each(function(index){
-                var link          = $(this),
-                    href          = link.attr('href');
-                if(href.charAt(0) !== "#"){
-                    link.removeClass('inner-link');
-                }
-            });
+//         if(innerLinks.length){
+//             innerLinks.each(function(index){
+//                 var link          = $(this),
+//                     href          = link.attr('href');
+//                 if(href.charAt(0) !== "#"){
+//                     link.removeClass('inner-link');
+//                 }
+//             });
 
-            mr.smoothscroll.init();
-            $(window).on('resize', mr.smoothscroll.init);
+//             mr.smoothscroll.init();
+//             $(window).on('resize', mr.smoothscroll.init);
 
-            offset = 0;
-            if($('body[data-smooth-scroll-offset]').length){
-                offset = $('body').attr('data-smooth-scroll-offset');
-                offset = offset*1;
-            }
+//             offset = 0;
+//             if($('body[data-smooth-scroll-offset]').length){
+//                 offset = $('body').attr('data-smooth-scroll-offset');
+//                 offset = offset*1;
+//             }
 
-            ao.offset = offset !== 0 ? offset: undefined; 
+//             ao.offset = offset !== 0 ? offset: undefined; 
             
-            smoothScroll.init(jQuery.extend({}, themeDefaults, mr.smoothscroll.options, ao));
-        }
-    };
+//             smoothScroll.init(jQuery.extend({}, themeDefaults, mr.smoothscroll.options, ao));
+//         }
+//     };
 
-    mr.components.documentReady.push(mr.smoothscroll.documentReady);
-    mr.components.windowLoad.push(mr.smoothscroll.init);
-    return mr;
+//     mr.components.documentReady.push(mr.smoothscroll.documentReady);
+//     mr.components.windowLoad.push(mr.smoothscroll.init);
+//     return mr;
 
-}(mr, jQuery, window, document));
+// }(mr, jQuery, window, document));
 
 //////////////// Tabs
 mr = (function (mr, $, window, document){

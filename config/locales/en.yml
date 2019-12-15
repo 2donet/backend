@@ -4,7 +4,7 @@ en:
     welcome: Welcome back, sign in with your existing <b>2do</b> account credentials
     email: Email Address
     password: Password
-    tandc: I agree to terms and conditions
+    remember: Remember me
     login: Login
     no_account: Dont have an account yet?
     create_account: Create account
@@ -25,3 +25,8 @@ en:
     email: Email Address
     submit: Recover Account
     no_account: Dont have an account yet?
+  recover_update:
+    title: Change your password
+    new_password: New Password
+    confirm: Confirm new password
+    submit: Update password

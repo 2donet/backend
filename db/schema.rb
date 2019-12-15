@@ -85,10 +85,10 @@ ActiveRecord::Schema.define(version: 2019_12_15_163221) do
     t.string "last_name"
     t.string "nickname"
     t.string "education"
-    t.bigint "institute_id"
+    t.bigint "institution_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["institute_id"], name: "index_users_on_institute_id"
+    t.index ["institution_id"], name: "index_users_on_institution_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

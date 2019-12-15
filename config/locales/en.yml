@@ -19,3 +19,9 @@ en:
     tandc: I agree to terms and conditions  
     submit: Create Account
     signup_tandc: By signing up, you agree to the 
+  recover:
+    title: Recover your account
+    enter_email: Enter email address to send a recovery email.
+    email: Email Address
+    submit: Recover Account
+    no_account: Dont have an account yet?

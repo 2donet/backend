@@ -4,7 +4,6 @@
   <section class="height-100 imagebg text-center" data-overlay="4">
     <div class="background-image-holder">
       <%= image_tag "inner-6.jpg", alt: "background" %>
-      <!-- <img alt="background" src="img/inner-6.jpg" /> -->
     </div>
     <div class="container pos-vertical-center">
       <div class="row">
@@ -13,13 +12,10 @@
           <p class="lead">
             <%= t("signin.welcome").html_safe %>
           </p>
-          <!-- <form> -->
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="row">
               <div class="col-md-12">
                 <%= f.email_field :email, autocomplete: "email", placeholder: t("signin.email"), required: true %>
-
-                <!-- <input type="email" placeholder="Email" required="true" /> -->
               </div>
               <div class="col-md-12">
                 <%= f.password_field :password, autocomplete: "current-password", placeholder: t("signin.password"), required: "true"%>
@@ -39,7 +35,6 @@
                 <button class="btn btn--primary type--uppercase" type="submit"><%= t("signin.login") %></button>
               </div>
             </div>
-            <!--end of row-->
         <% end %>
           <span class="type--fine-print block">
             <%= t("signin.no_account") %>
@@ -52,8 +47,6 @@
           </span>
         </div>
       </div>
-      <!--end of row-->
     </div>
-    <!--end of container-->
   </section>
 </div>

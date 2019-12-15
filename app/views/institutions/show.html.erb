@@ -1,0 +1,11 @@
+<%= Institution.find(params[:id]).inspect %>
+<br>
+logo =
+<% if Institution.find(params[:id]).logo.attached? %>
+  <%= image_tag Institution.find(params[:id]).logo.variant(resize_to_limit: [100, 100]) %> 
+<% end %>
+<br>
+cover = 
+<% if Institution.find(params[:id]).cover.attached? %>
+  <%= image_tag Institution.find(params[:id]).cover.variant(resize_to_limit: [100, 100]) %> 
+<% end %>

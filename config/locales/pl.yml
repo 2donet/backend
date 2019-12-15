@@ -1,12 +1,32 @@
 pl:
   signin:
-    continue: Login to continue
-    welcome: Welcome back, sign in with your existing <b>2do</b> account credentials
-    email: Email Address
-    password: Password
-    tandc: I agree to terms and conditions
+    continue: Zaloguj się by kontynuować 
+    welcome: Witaj ponownie, zaloguj się korzystając z danych podanych przy rejestracji konta <b>2do</b> 
+    email: adres e-mail
+    password: Hasło
+    remember: Nie wylogowuj mnie
     login: Login
-    no_account: Dont have an account yet?
-    create_account: Create account
-    forgot: Forgot your username or password?
-    recover: Recover account
+    no_account: Nie masz konta?
+    create_account: Rejestracja
+    forgot: Nie pamiętasz hasła? Zmień je.
+    recover: kliknij by zmienić hasło
+  signup:
+    create_account: Załóż konto <b>2do</b> 
+    already: Masz już konto? 
+    email: Adres e-mail
+    password: Hasło
+    confirm_password: Powtórz hasło
+    tandc: Akceptuję regulamin portalu.  
+    submit: Załóż konto
+    signup_tandc: Rejestrując się akceptujesz placeholder
+  recover:
+    title: Zmiana hasła
+    enter_email: Wprowadź adres e-mail powiązany z kontem, by otrzymać wiadomość umożliwiającą zmianę hasła. 
+    email: Adres e-mail
+    submit: Zmień hasło
+    no_account: Nie masz konta?
+  recover_update:
+    title: Zmiana hasła
+    new_password: Nowe hasło
+    confirm: Wprowadź hasło ponownie
+    submit: Zmień hasło

@@ -1,0 +1,11 @@
+<div class = "container">
+  <%= form_with url: institutions_path do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description, size: "60x12" %>
+    <%= f.text_field :address %>
+    <%= f.file_field :logo, multiple: false, direct_upload: false %>
+    <%= f.file_field :cover, multiple: false, direct_upload: false %>
+    
+    <%= f.submit "Create" %>
+  <% end %>
+</div>

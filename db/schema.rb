@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_14_124910) do
+ActiveRecord::Schema.define(version: 2019_12_14_152303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_categories_on_project_id"
+  end
+
+  create_table "project_users", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "user_id"
+    t.integer "role", default: 0
+    t.index ["project_id"], name: "index_project_users_on_project_id"
+    t.index ["user_id"], name: "index_project_users_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.integer "invitation", default: 0
+    t.string "name"
+    t.string "description"
+    t.string "problem"
+    t.string "goal"
+  end
+
+  create_table "universities", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "address"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,9 +60,15 @@ ActiveRecord::Schema.define(version: 2019_12_14_124910) do
     t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "nickname"
+    t.string "education"
+    t.bigint "university_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["university_id"], name: "index_users_on_university_id"
   end
 
 end

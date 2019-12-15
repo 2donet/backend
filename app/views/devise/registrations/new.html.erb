@@ -1,0 +1,62 @@
+<%= javascript_pack_tag 'scripts', 'data-turbolinks-track': 'reload' %>
+
+<div class="tab__content">
+  <section class="switchable ">
+    <div class="container">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 col-lg-5">
+          <div class="switchable__text">
+            <h2>Create a <b>2do</b> account</h2>
+            <span>Already have an account?
+              <%= link_to "Sign in", new_session_path(resource_name) %><br />
+            </span>
+            <hr class="short">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="row">
+                <div class="col-12">
+                  <input type="text" name="First Name" placeholder="Your Name" />
+                </div>
+                <div class="col-12">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address" %>
+                </div>
+                <div class="col-12">
+                  <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+                  <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+                </div>
+                <div class="col-12">
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password" %>
+                </div>
+                <div class="col-12">
+                  <div class="input-checkbox">
+                    <input type="checkbox" name="agree" />
+                    <label></label>
+                  </div>
+                  <span>I agree to terms and conditions</span>
+                </div>
+                <div class="col-12">
+                  <%= f.submit "Create Account", class: "btn btn--primary" %>
+                </div>
+                <hr />
+                <div class="col-12">
+                  <span class="type--fine-print">By signing up, you agree to the
+                    <a href="#">Terms of Service</a>
+                  </span>
+                </div>
+              </div>
+              <!--end row-->
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-5">
+          <%= image_tag "landing-7.jpg", class: 'border--round box-shadow-shallow'%>
+
+        </div>
+      </div>
+      <!--end of row-->
+    </div>
+    <!--end of container-->
+  </section>
+</div>

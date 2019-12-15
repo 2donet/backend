@@ -15,10 +15,10 @@
               <%= render "devise/shared/error_messages", resource: resource %>
               <div class="row">
                 <div class="col-12">
-                  <input type="text" name="First Name" placeholder="Your Name" />
+                  <input type="text" autofocus="true" name="First Name" placeholder="Your Name" />
                 </div>
                 <div class="col-12">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address" %>
+                  <%= f.email_field :email, autocomplete: "email", placeholder: "Email Address" %>
                 </div>
                 <div class="col-12">
                   <% if @minimum_password_length %>

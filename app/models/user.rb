@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
+
+  def display_name 
+    first_name.to_s + last_name.to_s
+  end
 end

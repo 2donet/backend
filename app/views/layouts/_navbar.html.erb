@@ -1,0 +1,63 @@
+<nav class="bar bar--sm bg--dark" id="menu5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-1 hidden-xs hidden-sm">
+        <div class="bar__module">
+          <a href="index.html">
+            <img class="logo logo-dark" alt="logo" src="img/logo-dark.png" />
+            <img class="logo logo-light" alt="logo" src="img/logo-light.png" />
+          </a>
+        </div>
+        <!--end module-->
+      </div>
+      <div class="col-lg-5">
+        <div class="bar__module">
+          <ul class="menu-horizontal">
+            <li>
+              <a href="#">
+                <i class="stack-interface stack-plus-circled"></i> Create
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="stack-interface stack-cog"></i> Manage
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--end columns-->
+      <div class="col-lg-6 text-right text-left-xs">
+        <div class="bar__module">
+          <ul class="menu-horizontal">
+            <li class="dropdown">
+              <span class="dropdown__trigger">
+                <img alt="avatar" class="avatar image--xxs" src="img/avatar-round-1.png" /> 
+                <% if current_user %>
+                <%= current_user.display_name %>
+                <% end %>
+              </span>
+            </li>
+            <li class="dropdown">
+              <span class="dropdown__trigger">
+                <i class="stack-interface stack-bell"></i> Alerts
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="bar__module">
+            <% if user_signed_in? %>
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn btn--primary btn--sm type--uppercase logout_text") %>        
+            <% else %>
+              <span class = "btn__text">
+                <%= link_to('Login', new_user_session_path) %>  
+              </span>
+            <% end %>
+        </div>
+      </div>
+      <!--end columns-->
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</nav>
